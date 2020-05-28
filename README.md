@@ -1,4 +1,4 @@
-**Activate the virtual environment++
+**Activate the virtual environment**
 ```
 source blockchain-env/bin/activate
 ```
@@ -10,5 +10,15 @@ conda install --yes --file requirements.txt
 
 **Run the tests**
 ```
-python3 -m pytest backend/tests
+python -m pytest backend/tests
+```
+
+**Run the application and the api**
+```
+python3 -m backend.app
+```
+
+**Run a peer instance**
+```
+set PEER=TRUE && python -m backend.app
 ```

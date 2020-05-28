@@ -40,6 +40,12 @@ class Block:
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
 
+    def to_json(self):
+        """
+        Serialize the block into a dictinory of its attributes
+        """
+        return self.__dict__
+
     @staticmethod
     def mine_block(last_block, data):
         # mine a block based on the given last_block and data, untill a block hash
@@ -62,6 +68,13 @@ class Block:
     def genesis():
         # generate the genesis block
         return Block(**GENESIS_DATA)
+
+    @staticmethod
+    def from_json(block_json):
+        """
+        Deserialize a block's json representation back into a block instance
+        """
+        return Block(**block_json)
 
     @staticmethod
     def adjust_difficulty(last_block, new_timestamp):
